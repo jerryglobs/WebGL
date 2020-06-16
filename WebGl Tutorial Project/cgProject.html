@@ -1,0 +1,306 @@
+<html>
+<!-- (CC-NC-BY) Park Jae Hyoung 2019 -->
+<head>
+<title>CG Project Transformation</title>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+<script type="text/javascript" src="cgProject.js"></script>
+<script type="text/javascript" src="gl-matrix.js"></script>
+
+
+</head>
+
+<body onload="main()">
+	<h2>CG Project Transformation</h2>
+	<a href='Readme.md' target="_blank">ReadMe</a>
+    <canvas id="cgProjects" style="border: none;" width="400" height="400"></canvas>
+	<br>
+	<table border=1>
+		<tr>
+			<!-- All  텍스트 박스 생성-->
+		<td>
+			<p id = "all">  All of Planet </p>
+		</td>
+		<td>
+			<button onclick="allRotate()">Rotate Speed Up</button>
+		</td>
+		<td>
+			<button onclick="allPause()">Rotate Pause</button>
+		</td>
+		<tr>
+			<!-- Main Planet  텍스트 박스 생성-->
+		<td>
+			<p id = "planet">Main Planet</p>
+		</td>
+		<td>
+			<button onclick="planetRotate()">Rotate Speed Up</button>
+		</td>
+		<td>
+			<button onclick="planetPause()">Rotate Pause</button>
+		</td>
+	</table>
+
+	<table border=1>
+	<tr>
+		<!-- Moon 1  텍스트 박스 생성-->
+	<td>
+		<p id = "text1">Moon 1</p>
+	</td>
+	<td>
+		<button onClick="showSatellite(0)">Visible/InVisible</button>
+	</td>
+	<td>
+		<button onclick="satellite_Rotate(1)">Rotate Speed Up</button>
+	</td>
+	<td>
+		<button onclick="satellite_Pause(1)">Rotate Pause</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(1,0)">Move X +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(1,0)">Move X -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(1,1)">Move Y +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(1,1)">Move Y -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(1,2)">Move Z +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(1,2)">Move Z -0.01</button>
+	</td>
+	<tr>
+		<!-- Moon 2  텍스트 박스 생성-->
+	<td>
+		<p id = "text2">Moon 2</p>
+	</td>
+	<td>
+		<button onClick="showSatellite(1)">Visible/InVisible</button>
+	</td>
+	<td>
+		<button onclick="satellite_Rotate(2)">Rotate Speed Up</button>
+	</td>
+	<td>
+		<button onclick="satellite_Pause(2)">Rotate Pause</button>			
+	</td>	
+	<td>
+		<button onclick="trMoon_Position_Plus(2,0)">Move X +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(2,0)">Move X -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(2,1)">Move Y +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(2,1)">Move Y -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(2,2)">Move Z +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(2,2)">Move Z -0.01</button>
+	</td>
+	<tr>
+		<!-- Moon 3  텍스트 박스 생성-->
+	<td>
+		<p id = "text3">Moon 3</p>
+	</td>
+	<td>
+		<button onClick="showSatellite(2)">Visible/InVisible</button>
+	</td>
+	<td>
+		<button onclick="satellite_Rotate(3)">Rotate Speed Up</button>				
+	</td>
+	<td>
+		<button onclick="satellite_Pause(3)">Rotate Pause</button>			
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(3,0)">Move X +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(3,0)">Move X -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(3,1)">Move Y +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(3,1)">Move Y -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(3,2)">Move Z +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(3,2)">Move Z -0.01</button>
+	</td>
+
+	<tr>
+		<!-- Moon 4  텍스트 박스 생성-->
+	<td>
+		<p id = "text4">Moon 4</p>
+	</td>
+	<td>
+		<button onClick="showSatellite(3)">Visible/InVisible</button>
+	</td>
+	<td>
+		<button onclick="satellite_Rotate(4)">Rotate Speed Up</button>	
+	</td>
+	<td>
+		<button onclick="satellite_Pause(4)">Rotate Pause</button>			
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(4,0)">Move X +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(4,0)">Move X -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(4,1)">Move Y +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(4,1)">Move Y -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(4,2)">Move Z +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(4,2)">Move Z -0.01</button>
+	</td>
+	<tr>
+		<!-- Moon 5  텍스트 박스 생성-->
+	<td>
+		<p id = "text5">Moon 5</p>
+	</td>
+	<td>
+		<button onClick="showSatellite(4)">Visible/InVisible</button>
+	</td>
+	<td>
+		<button onclick="satellite_Rotate(5)">Rotate Speed Up</button>
+	</td>
+	<td>
+		<button onclick="satellite_Pause(5)">Rotate Pause</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(5,0)">Move X +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(5,0)">Move X -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(5,1)">Move Y +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(5,1)">Move Y -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(5,2)">Move Z +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(5,2)">Move Z -0.01</button>
+	</td>
+	<tr>
+	<!-- Moon 6  텍스트 박스 생성-->
+	<td>
+		<p id = "text6">Moon 6</p>
+	</td>
+	<td>
+		<button onClick="showSatellite(5)">Visible/InVisible</button>
+	</td>		
+	<td>
+		<button onclick="satellite_Rotate(6)">Rotate Speed Up</button>
+	</td>
+	<td>
+		<button onclick="satellite_Pause(6)">Rotate Pause</button>			
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(6,0)">Move X +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(6,0)">Move X -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(6,1)">Move Y +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(6,1)">Move Y -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(6,2)">Move Z +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(6,2)">Move Z -0.01</button>
+	</td>	
+	<tr>
+		<!-- Moon 7  텍스트 박스 생성-->
+	<td>
+		<p id = "text7">Moon 7</p>
+	</td>
+	<td>
+		<button onClick="showSatellite(6)">Visible/InVisible</button>
+	</td>
+	<td>
+		<button onclick="satellite_Rotate(7)">Rotate Speed Up</button>				
+	</td>
+	<td>
+		<button onclick="satellite_Pause(7)">Rotate Pause</button>			
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(7,0)">Move X +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(7,0)">Move X -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(7,1)">Move Y +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(7,1)">Move Y -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(7,2)">Move Z +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(7,2)">Move Z -0.01</button>
+	</td>
+	<tr>
+		<!-- Moon 8  텍스트 박스 생성-->
+	<td>
+		<p id = "text8">Moon 8</p>
+	</td>
+	<td>
+		<button onClick="showSatellite(7)">Visible/InVisible</button>
+	</td>
+	<td>
+		<button onclick="satellite_Rotate(8)">Rotate Speed Up</button>	
+	</td>
+	<td>
+		<button onclick="satellite_Pause(8)">Rotate Pause</button>			
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(8,0)">Move X +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(8,0)">Move X -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(8,1)">Move Y +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(8,1)">Move Y -0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Plus(8,2)">Move Z +0.01</button>
+	</td>
+	<td>
+		<button onclick="trMoon_Position_Minus(8,2)">Move Z -0.01</button>
+	</td>
+	</table>
+
+</body>
+
+</html>
